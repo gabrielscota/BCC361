@@ -1,0 +1,21 @@
+runtime: nodejs14  # Defina a versão do Node.js que deseja usar
+
+# Configurações para o escalonamento automático
+automatic_scaling:
+  target_cpu_utilization: 0.65  # Ajuste esse valor conforme necessário
+  min_instances: 1              # Número mínimo de instâncias (opcional)
+  max_instances: 10             # Número máximo de instâncias (opcional)
+
+handlers:
+  - url: /.*
+    script: auto
+
+env_variables:
+  # Defina as variáveis de ambiente que sua aplicação precisa (se houver alguma)
+  # Exemplo:
+  # VAR_NAME: "valor_da_variavel"
+
+# Defina outras configurações necessárias para a sua aplicação (se houver alguma)
+# Exemplo:
+# network:
+#   instance_tag: "my-instance-tag"
