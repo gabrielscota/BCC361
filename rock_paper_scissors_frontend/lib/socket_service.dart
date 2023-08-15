@@ -59,8 +59,7 @@ class SocketService {
       _socket.onConnect((_) => debugPrint('Conectado ao servidor'));
 
       _socket.onConnectError((data) {
-        _roomsResponseStreamController.sink.addError(
-            'Erro ao conectar ao servidor.\nMotivo: [${(data as String)[0].toUpperCase() + data.substring(1)}]');
+        _roomsResponseStreamController.sink.addError('Erro ao conectar ao servidor.\nMotivo: [$data]');
 
         debugPrint('Erro na conexão com o servidor: $data');
       });
